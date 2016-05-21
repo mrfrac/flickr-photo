@@ -1,0 +1,20 @@
+<div ng-if="error_message">
+    <div class="alert alert-danger" role="alert">{{ error_message }}</div>
+</div>
+
+<div ng-if="!error_message">
+    <h1>{{ request.name }}:
+        <span ng-repeat="tag in request.tags">{{ tag }}<span ng-if="!$last">, </span></span>
+    </h1>
+
+    <h3>Найдено {{ result.items.length }} изображений</h3>
+
+    <div class="row">
+        <div ng-repeat="item in result.items" class="col-md-3  item-block">
+            <a href="{{ item.link }}" target="_blank">
+                <div class="col-md-3 item" style="background-image: url('{{ item.media.m }}');"></div>
+                <p class="item-title">{{ item.title | limitTo: 40 }}{{ item.title.length > 40 ? '...' : '' }}</p>
+            </a>
+        </div>
+    </div>
+</div>
