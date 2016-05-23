@@ -11,12 +11,14 @@
         <td>{{ request.tags.join(", ") }}</td>
         <td>
             <a ng-click="deleteRequest(request.id)"><i class="fa fa-times" aria-hidden="true"></i> Удалить</a>
+            | <a ng-click="edit(request.id)"><i class="fa fa-pencil" aria-hidden="true"></i> Изменить</a>
         </td>
     </tr>
 </table>
 <button id="create-form-open" type="button" class="btn btn-default">Добавить</button>
 
 <div class="row">
+    <!-- Create form -->
     <div class="col-md-12" id="createFormBlock" style="display: none">
         <hr/>
         <h2>Создать новый запрос</h2>
@@ -44,14 +46,49 @@
                 <p ng-if="error_message" class="form-error">{{ error_message }}</p>
                 <a class="btn btn-default" ng-click="add()">Сохранить</a>
             </form>
+        </div>
+        <hr/>
+    </div>
+    <!-- End Create Form -->
+
+    <!-- Edit Form -->
+    <div class="col-md-12" id="editFormBlock" style="display: none">
+        <hr/>
+        <h2>Изменить запрос</h2>
+        <div class="form-border">
+            <form name="updateForm" id="edit-form" title="Создать новый запрос" ng-controller="EditController">
+                <input type="hidden" ng-model="edit_id.text" required/>
+                <div class="form-group">
+                    <label for="inputName">Название</label>
+                    <input ng-model="edit_name.text" ng-pattern="edit_name.word" type="text" class="form-control"
+                           id="inputEditName"
+                           placeholder="Название" required name="name">
+
+                    <p class="form-error" ng-show="createForm.name.$error.required">Поле обязательно для заполнения</p>
+
+                    <p class="form-error" ng-show="createForm.name.$error.pattern">Неверный формат</p>
+                </div>
+                <div class="form-group">
+                    <label for="inputTags">Теги</label>
+                    <input ng-model="edit_tags.text" ng-pattern="edit_tags.word" type="text" class="form-control"
+                           id="inputEditTags" placeholder="Через запятую" name="tags" required>
+
+                    <p class="form-error" ng-show="createForm.tags.$error.required">Поле обязательно для заполнения</p>
+
+                    <p class="form-error" ng-show="createForm.tags.$error.pattern">Неверный формат</p>
+                </div>
+                <p ng-if="error_message" class="form-error">{{ error_message }}</p>
+                <a class="btn btn-default" ng-click="update()">Изменить</a>
+            </form>
 
         </div>
         <hr/>
     </div>
+    <! -- End Edit form -->
 </div>
 
 <script>
     $("#create-form-open").on("click", function(){
-        $("#createFormBlock").toggle();
+        $("#createFormBlock").toggle(250);
     });
 </script>
