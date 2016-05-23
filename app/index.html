@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Photo Search App (Using Flickr Public API)</title>
-    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Поиск фотографий через сервис Flickr (Public API)</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <link href="app.css" rel="stylesheet">
 </head>
@@ -29,8 +29,8 @@
                 </a>
             </li>
             <li ng-repeat="request in requests" class="sidebar-element">
-                <a href="#/details/{{ request.id }}"><i class="fa fa-search" aria-hidden="true"></i> {{ request.name }} (<span ng-repeat="tag in request.tags">{{ tag }}<span
-                        ng-if="!$last">,</span></span>)</a>
+                <a href="#/details/{{ request.id }}"><i class="fa fa-search" aria-hidden="true"></i> {{ request.name }}
+                    ({{ request.tags.join(",") | limitTo:15 }}{{ request.tags.join(",").length > 15 ? "..." : "" }})</a>
             </li>
             <li class="sidebar-element">
                 <a href="#/edit">
@@ -52,10 +52,10 @@
 </div>
 
 <!-- jQuery -->
-<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="js/jquery.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 
 <!-- Angular Scripts -->
 <script src="bower_components/angular/angular.js"></script>
@@ -75,7 +75,6 @@
 <script>
 
     $(document).ready(function () {
-        ;
         $("#menu-toggle").click(function (e) {
             e.preventDefault();
             $("#wrapper").toggleClass("toggled");
