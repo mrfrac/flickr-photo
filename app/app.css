@@ -88,6 +88,10 @@
     background: none;
 }
 
+.sidebar-element {
+    margin-left: -13px;
+}
+
 @media(min-width:768px) {
     #wrapper {
         padding-left: 250px;

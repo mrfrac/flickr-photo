@@ -28,9 +28,14 @@
                     Поиск изображений
                 </a>
             </li>
-            <li ng-repeat="request in requests">
-                <a href="#/details/{{ request.id }}">{{ request.name }} (<span ng-repeat="tag in request.tags">{{ tag }}<span
+            <li ng-repeat="request in requests" class="sidebar-element">
+                <a href="#/details/{{ request.id }}"><i class="fa fa-search" aria-hidden="true"></i> {{ request.name }} (<span ng-repeat="tag in request.tags">{{ tag }}<span
                         ng-if="!$last">,</span></span>)</a>
+            </li>
+            <li class="sidebar-element">
+                <a href="#/edit">
+                    <i class="fa fa-pencil" aria-hidden="true"></i> Редактировать запросы
+                </a>
             </li>
         </ul>
     </div>
@@ -61,6 +66,10 @@
 <script src="app.js"></script>
 <script src="index/index.js"></script>
 <script src="details/details.js"></script>
+<script src="edit/edit.js"></script>
+
+<!-- Font Awesome -->
+<script src="//use.fontawesome.com/fed846fb80.js"></script>
 
 <!-- Menu Toggle Script -->
 <script>

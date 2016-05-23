@@ -9,6 +9,6 @@ angular.module('photoSearchApp.index', ['ngRoute'])
     });
 }])
 
-.controller('IndexController', ['$scope', '$localStorage', function ($scope, $localStorage) {
+.controller('IndexController', ['$scope', function ($scope) {
 
 }]);

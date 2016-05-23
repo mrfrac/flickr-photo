@@ -9,7 +9,7 @@ angular.module('photoSearchApp.details', ['ngRoute'])
     });
 }])
 
-.controller('DetailsController', ['$scope', '$routeParams', '$http', 'Request', '$filter', '$localStorage', function ($scope, $routeParams, $http, Request, $filter, $localStorage) {
+.controller('DetailsController', ['$scope', '$routeParams', '$http', '$filter', '$localStorage', function ($scope, $routeParams, $http, $filter, $localStorage) {
 
     var id = parseInt($routeParams.requestId, 10),
         wrapper = $("#loading-wrapper");
