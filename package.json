@@ -6,7 +6,6 @@
   "repository": "",
   "license": "MIT",
   "devDependencies": {
-    "angular": "*",
     "bower": "*",
     "http-server": "*"
   },
