@@ -89,6 +89,9 @@
 
 <script>
     $("#create-form-open").on("click", function(){
+        if($("#editFormBlock").is(":visible"))
+            $("#editFormBlock").hide(100);
+
         $("#createFormBlock").toggle(250);
     });
 </script>
