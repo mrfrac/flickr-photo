@@ -39,5 +39,7 @@ angular.module('photoSearchApp.details', ['ngRoute'])
         }).finally(function () {
             wrapper.hide();
         });
+
+    $scope.orderProp = "title";
 }]);
 
