@@ -1,1 +1,57 @@
-<p>Пока только заготовка</p>
+<h1>Запросы</h1>
+<hr>
+<table class="table table-striped">
+    <tr>
+        <th>Название запроса</th>
+        <th>Теги</th>
+        <th>Операции</th>
+    </tr>
+    <tr ng-repeat="request in requests">
+        <td>{{ request.name }}</td>
+        <td>{{ request.tags.join(", ") }}</td>
+        <td>
+            <a ng-click="deleteRequest(request.id)"><i class="fa fa-times" aria-hidden="true"></i> Удалить</a>
+        </td>
+    </tr>
+</table>
+<button id="create-form-open" type="button" class="btn btn-default">Добавить</button>
+
+<div class="row">
+    <div class="col-md-12" id="createFormBlock" style="display: none">
+        <hr/>
+        <h2>Создать новый запрос</h2>
+        <div class="form-border">
+            <form name="createForm" id="create-form" title="Создать новый запрос" ng-controller="EditController">
+                <div class="form-group">
+                    <label for="inputName">Название</label>
+                    <input ng-model="new_name.text" ng-pattern="new_name.word" type="text" class="form-control"
+                           id="inputName"
+                           placeholder="Название" required name="name">
+
+                    <p class="form-error" ng-show="createForm.name.$error.required">Поле обязательно для заполнения</p>
+
+                    <p class="form-error" ng-show="createForm.name.$error.pattern">Неверный формат</p>
+                </div>
+                <div class="form-group">
+                    <label for="inputTags">Теги</label>
+                    <input ng-model="new_tags.text" ng-pattern="new_tags.word" type="text" class="form-control"
+                           id="inputTags" placeholder="Через запятую" name="tags" required>
+
+                    <p class="form-error" ng-show="createForm.tags.$error.required">Поле обязательно для заполнения</p>
+
+                    <p class="form-error" ng-show="createForm.tags.$error.pattern">Неверный формат</p>
+                </div>
+                <p ng-if="error_message" class="form-error">{{ error_message }}</p>
+                <a class="btn btn-default" ng-click="add()">Сохранить</a>
+            </form>
+
+        </div>
+        <hr/>
+    </div>
+</div>
+
+<script>
+    $("#create-form-open").on("click", function(){
+        $("#createFormBlock").toggle();
+    });
+</script>

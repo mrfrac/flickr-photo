@@ -162,3 +162,22 @@
     bottom: 0;
     text-align: center;
 }
+
+.form-border {
+    margin-right: 0;
+    margin-left: 0;
+    background-color: #fff;
+    border-color: #ddd;
+    border-width: 1px;
+    border-radius: 4px 4px 0 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    position: relative;
+    padding: 10px 15px 15px;
+}
+
+.form-error {
+    background-color: #f2dede;
+    padding: 10px;
+    margin-top: 5px;
+}
