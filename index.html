@@ -29,8 +29,8 @@
                 </a>
             </li>
             <li ng-repeat="request in requests" class="sidebar-element">
-                <a href="#/details/{{ request.id }}"><i class="fa fa-search" aria-hidden="true"></i> {{ request.name }}
-                    ({{ request.tags.join(",") | limitTo:15 }}{{ request.tags.join(",").length > 15 ? "..." : "" }})</a>
+                <a href="#/details/{{ request.id }}"><i class="fa fa-search" aria-hidden="true"></i> {{ request.name | limitTo:15 }}{{ request.name.length > 15 ? "..." : "" }}
+                    <small>({{ request.tags.join(",") | limitTo:10 }}{{ request.tags.join(",").length > 10 ? "..." : "" }})</small></a>
             </li>
             <li class="sidebar-element">
                 <a href="#/edit">
@@ -38,7 +38,7 @@
                 </a>
             </li>
         </ul>
-    </div>
+    </div> 
     <div id="page-content-wrapper">
         <div class="container-fluid">
             <div class="row">
