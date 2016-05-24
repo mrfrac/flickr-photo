@@ -42,7 +42,7 @@ angular.module('photoSearchApp.edit', ['ngRoute'])
                 max_id = $localStorage.requests[i].id;
         }
 
-        if(angular.isDefined($scope.new_name) && angular.isDefined($scope.new_tags.text)) {
+        if(angular.isDefined($scope.new_name) && angular.isDefined($scope.new_tags.text) && $scope.new_name.length > 0 && $scope.new_tags.text.length > 0) {
             $localStorage.requests.push({
                 id: max_id + 1,
                 name: $scope.new_name.text,
