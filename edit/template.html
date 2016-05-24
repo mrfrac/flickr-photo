@@ -64,18 +64,18 @@
                            id="inputEditName"
                            placeholder="Название" required name="name">
 
-                    <p class="form-error" ng-show="createForm.name.$error.required">Поле обязательно для заполнения</p>
+                    <p class="form-error" ng-show="updateForm.name.$error.required">Поле обязательно для заполнения</p>
 
-                    <p class="form-error" ng-show="createForm.name.$error.pattern">Неверный формат</p>
+                    <p class="form-error" ng-show="updateForm.name.$error.pattern">Неверный формат</p>
                 </div>
                 <div class="form-group">
                     <label for="inputTags">Теги</label>
                     <input ng-model="edit_tags.text" ng-pattern="edit_tags.word" type="text" class="form-control"
                            id="inputEditTags" placeholder="Через запятую" name="tags" required>
 
-                    <p class="form-error" ng-show="createForm.tags.$error.required">Поле обязательно для заполнения</p>
+                    <p class="form-error" ng-show="updateForm.tags.$error.required">Поле обязательно для заполнения</p>
 
-                    <p class="form-error" ng-show="createForm.tags.$error.pattern">Неверный формат</p>
+                    <p class="form-error" ng-show="updateForm.tags.$error.pattern">Неверный формат</p>
                 </div>
                 <p ng-if="error_message" class="form-error">{{ error_message }}</p>
                 <a class="btn btn-default" ng-click="update()">Изменить</a>
@@ -84,7 +84,7 @@
         </div>
         <hr/>
     </div>
-    <! -- End Edit form -->
+    <!-- End Edit form -->
 </div>
 
 <script>
